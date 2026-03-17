@@ -8,7 +8,6 @@ body {
   color: #111827;
 }
 
-/* small scroll tweak */
 ::-webkit-scrollbar {
   width: 6px;
 }

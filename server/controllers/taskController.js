@@ -1,6 +1,5 @@
 const Task = require("../models/Task");
 
-// GET /api/tasks
 const getTasks = async (req, res) => {
   try {
     const { status, search } = req.query;
@@ -23,7 +22,6 @@ const getTasks = async (req, res) => {
   }
 };
 
-// GET /api/tasks/:id
 const getTaskById = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id);
@@ -32,7 +30,6 @@ const getTaskById = async (req, res) => {
       return res.status(404).json({ message: "Task not found" });
     }
 
-    // make sure the task belongs to the logged in user
     if (task.user.toString() !== req.user._id.toString()) {
       return res.status(403).json({ message: "Not allowed to access this task" });
     }
@@ -43,7 +40,6 @@ const getTaskById = async (req, res) => {
   }
 };
 
-// POST /api/tasks
 const createTask = async (req, res) => {
   const { title, description, status } = req.body;
 
@@ -62,7 +58,6 @@ const createTask = async (req, res) => {
   }
 };
 
-// PUT /api/tasks/:id
 const updateTask = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id);
@@ -89,7 +84,6 @@ const updateTask = async (req, res) => {
   }
 };
 
-// DELETE /api/tasks/:id
 const deleteTask = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id);

@@ -9,8 +9,6 @@ const {
 } = require("../controllers/taskController");
 const { protect } = require("../middleware/authMiddleware");
 const { validateTask } = require("../middleware/validateInput");
-
-// all task routes need a valid token
 router.use(protect);
 
 router.route("/").get(getTasks).post(validateTask, createTask);

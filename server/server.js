@@ -7,13 +7,11 @@ dotenv.config();
 
 const app = express();
 
-// connect to mongo before anything else
 connectDB();
 
 app.use(cors({ origin: process.env.CLIENT_URL || "http://localhost:5173" }));
 app.use(express.json());
 
-// routes
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/tasks", require("./routes/taskRoutes"));
 
@@ -22,7 +20,6 @@ app.get("/", (req, res) => {
   res.json({ message: "ITM API is running" });
 });
 
-// catch-all for routes that dont exist
 app.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
 });

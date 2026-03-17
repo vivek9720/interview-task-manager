@@ -1,5 +1,3 @@
-// simple validators — nothing fancy, just checking the basics
-
 const validateSignup = (req, res, next) => {
   const { name, email, password } = req.body;
 

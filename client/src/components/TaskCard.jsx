@@ -21,7 +21,6 @@ const TaskCard = ({ task, onUpdate, onDelete }) => {
   const handleDelete = async () => {
     setDeleting(true);
     await onDelete(task._id);
-    // no setDeleting(false) needed — card unmounts on delete
   };
 
   const formattedDate = new Date(task.createdAt).toLocaleDateString("en-IN", {
@@ -48,7 +47,6 @@ const TaskCard = ({ task, onUpdate, onDelete }) => {
     <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-start gap-3 flex-1 min-w-0">
-          {/* checkbox to toggle status */}
           <button
             onClick={handleToggleStatus}
             className={`mt-0.5 w-5 h-5 rounded border-2 flex-shrink-0 flex items-center justify-center transition-colors ${

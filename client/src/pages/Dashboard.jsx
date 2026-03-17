@@ -37,7 +37,6 @@ const Dashboard = () => {
     loadTasks();
   }, [loadTasks]);
 
-  // simple debounce for search
   useEffect(() => {
     const timer = setTimeout(() => {
       setSearch(searchInput);
@@ -85,7 +84,6 @@ const Dashboard = () => {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
 
-        {/* header row */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
             <h2 className="text-xl font-bold text-gray-900">My Tasks</h2>
@@ -101,7 +99,6 @@ const Dashboard = () => {
           </button>
         </div>
 
-        {/* task creation form */}
         {showForm && (
           <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm mb-6">
             <p className="text-sm font-medium text-gray-700 mb-4">Add a new task</p>
@@ -113,7 +110,6 @@ const Dashboard = () => {
           </div>
         )}
 
-        {/* search + filter bar */}
         <div className="flex flex-col sm:flex-row gap-3 mb-6">
           <input
             type="text"
@@ -139,7 +135,6 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* task list */}
         {loading ? (
           <div className="text-center py-16 text-sm text-gray-400">Loading tasks...</div>
         ) : fetchError ? (

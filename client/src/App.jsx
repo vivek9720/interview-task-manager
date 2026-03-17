@@ -4,14 +4,12 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 
-// wraps routes that need a logged-in user
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useAuth();
   if (loading) return null;
   return user ? children : <Navigate to="/login" replace />;
 };
 
-// redirect already-logged-in users away from auth pages
 const GuestRoute = ({ children }) => {
   const { user, loading } = useAuth();
   if (loading) return null;
